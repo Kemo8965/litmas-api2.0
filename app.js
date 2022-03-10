@@ -4,10 +4,12 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const taskRoute = require('./routes/tasks')
 const app = express();
+const bodyParser = require("body-parser")
 
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', taskRoute);
 
 // Default Route
