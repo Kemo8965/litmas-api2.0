@@ -1,0 +1,39 @@
+{
+  "name": "litmas-api2.0",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "heroku": "^7.59.2",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "luxon": "^2.3.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
+    "mongoose": "^5.13.14",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.15"
+  },
+  "description": "API for Litmas",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kemo8965/litmas-api2.0.git"
+  },
+  "author": "Kondwani Mwale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kemo8965/litmas-api2.0/issues"
+  },
+  "homepage": "https://github.com/Kemo8965/litmas-api2.0#readme"
+}
