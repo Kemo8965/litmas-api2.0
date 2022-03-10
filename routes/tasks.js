@@ -26,7 +26,7 @@ router.get('/allTasks', async (req,res)=>{
  });
 
 
- //CREATE NEW CLIENT
+ //CREATE NEW TASK
 router.post('/addNewTask', async (req,res) => {
     
      try {  
