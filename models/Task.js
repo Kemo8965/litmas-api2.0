@@ -1,9 +1,9 @@
-import moment from 'moment';
-import { Schema, model } from 'mongoose';
-import tz from 'moment-timezone';
-import luxon from 'luxon';
+const moment = require('moment');
+const mongoose = require('mongoose');
+const tz = require ('moment-timezone')
+const luxon = require ('luxon')
 
-const TaskSchema = new Schema({
+const TaskSchema = new mongoose.Schema({
 
   taskDescription: {
     type: String,
@@ -34,4 +34,4 @@ const TaskSchema = new Schema({
 
 });
 
-export default model("Tasks", TaskSchema);
+module.exports = mongoose.model("Tasks", TaskSchema);
