@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const authRoute = require('./routes/auth');
 require('dotenv').config();
 const taskRoute = require('./routes/tasks')
 const cattleRoute = require('./routes/cattle')
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', taskRoute);
 app.use('/cattle', cattleRoute);
+app.use('/auth', authRoute);
 
 // Default Route
 app.get('/', (req,res) =>{
