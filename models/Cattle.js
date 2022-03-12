@@ -12,14 +12,14 @@ const Cattle = new mongoose.Schema({
   },
  
   cattleDateOfBirth: {
-    type: Date,
+    type: String,
     required: true,
     default: moment().tz("Africa/Lusaka").format('dddd, MMMM Do YYYY') 
    
   },
 
   datePurchased: {
-    type: Date,
+    type: String,
     required: true,
     default: moment().tz("Africa/Lusaka").format('dddd, MMMM Do YYYY') 
    
