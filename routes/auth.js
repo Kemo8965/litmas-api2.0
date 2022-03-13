@@ -75,7 +75,7 @@ router.get('/User/:id', async (req,res)=>{
         res.header('auth-token',token).send({ message: `Logged in as ${req.body.email} !`,
           name:user.name, id: user._id, role: user.role, token: token});
  
-       res.send('Logged In ');
+      // res.send('Logged In ');
         
 
 
