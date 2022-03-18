@@ -34,7 +34,7 @@ router.get('/allUsers', async (req,res)=>{
 router.get('/User/:id', async (req,res)=>{
   try {
       
-      const user = await User.findById({_id: req.params.id});
+      const user = await User.findById({userID: req.params.userID});
       res.json({
 
           status: 'Successfully retreived user!',
@@ -71,9 +71,9 @@ router.get('/User/:id', async (req,res)=>{
 
 
       
-        const token = jwt.sign({ _id: user._id },`${ process.env.TOKEN_SECRET}`);
+        const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
         res.header('auth-token',token).send({ message: `Logged in as ${req.body.email} !`,
-          name:user.name, email:user.email, id: user._id, role: user.role, token: token});
+          name:user.name, email:user.email, userID: user.userID, role: user.role, token: token});
  
       // res.send('Logged In ');
         
@@ -121,7 +121,8 @@ router.get('/User/:id', async (req,res)=>{
            name: req.body.name,
            email: req.body.email,
            password: hashPassword,
-           role: req.body.role
+           role: req.body.role,
+           userID:(Math.round((Math.random() * 1000) * (0.75) * (1.22) * (0.628) * (1.611)))
        });
     
        console.log(registeredUser);

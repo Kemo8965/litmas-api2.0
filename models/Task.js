@@ -23,6 +23,10 @@ const Tasks = new mongoose.Schema({
     required: true,
    
   },
+
+  createdBy:{
+    type: Number
+  },
   
   date: {         
     type:String,

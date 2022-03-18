@@ -39,6 +39,12 @@ const UserSchema = new mongoose.Schema({
         
     },
 
+    userID:{
+
+        type: String,
+       
+    },
+
     date: {         
         type:String,
       // default: moment().utc().format('dddd, MMMM Do YYYY, h:mm:ss a zz') 
