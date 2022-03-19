@@ -39,7 +39,8 @@ router.post('/addNewCattle', async (req,res) => {
             cattleWeight:req.body.cattleWeight,
             earTagColor:req.body.earTagColor,
             supplierName:req.body.supplierName,
-            cattleStatus:req.body.cattleStatus
+            cattleStatus:req.body.cattleStatus,
+            createdBy: req.body.createdBy
            
             
         });

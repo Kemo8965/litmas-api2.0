@@ -56,6 +56,11 @@ const Cattle = new mongoose.Schema({
     required: true,
    
   },
+
+  
+  createdBy:{
+    type: String
+  },
   
   date: {         
     type:String,
