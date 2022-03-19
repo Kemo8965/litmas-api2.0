@@ -25,7 +25,7 @@ const Tasks = new mongoose.Schema({
   },
 
   createdBy:{
-    type: Number
+    type: String
   },
   
   date: {         
