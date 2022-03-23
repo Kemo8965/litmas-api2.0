@@ -24,7 +24,7 @@ app.get('/', (req,res) =>{
 
 const conn = mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser:true, useUnifiedTopology:true });
 
-const port = process.env.PORT || 80 ;
+const port = process.env.PORT || 5009 ;
 if (port == null || port == "") {
     port= 5008;
 }
