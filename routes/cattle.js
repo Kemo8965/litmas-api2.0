@@ -142,8 +142,8 @@ router.post('/addNewDMR', async (req,res) => {
             firstMilking:req.body.firstMilking,
             secondMilking:req.body.secondMilking,
             thirdMilking:req.body.thirdMilking,
-            milkOwner: req.body.milkOwner,
-            createdBy: req.body.createdBy,
+            milkOwner:req.body.milkOwner,
+            createdBy:req.body.createdBy,
             DailyMilkingYield:(req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking).toFixed(2),
             
         });
