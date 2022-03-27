@@ -93,6 +93,7 @@ router.post('/addNewCalf', async (req,res) => {
             dam:req.body.dam,
             calfSex:req.body.calfSex,
             calfWeight:req.body.calfWeight,
+            earTagID:req.body.earTagID,
             earTagColor:req.body.earTagColor,
             calfStatus:req.body.calfStatus,
             createdBy: req.body.createdBy
