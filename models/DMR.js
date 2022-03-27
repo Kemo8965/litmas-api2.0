@@ -13,20 +13,20 @@ const DMR = new mongoose.Schema({
   },
  
   firstMilking: {
-    type: Number,
+    type: String,
     required: true,
    
   },
 
   secondMilking: {
-    type: Number,
+    type: String,
     required: true,
    
   },
  
  
   thirdMilking: {
-    type: Number,
+    type: String,
     required: true,
    
   },
