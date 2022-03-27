@@ -45,6 +45,13 @@ const Cattle = new mongoose.Schema({
    
   },
 
+  
+  earTagID: {
+    type: String,
+    required: true,
+   
+  },
+
   earTagColor: {
     type: String,
     required: true,
