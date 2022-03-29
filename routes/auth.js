@@ -73,7 +73,7 @@ router.get('/User/:id', async (req,res)=>{
       
         const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
         res.header('auth-token',token).send({ message: `Logged in as ${req.body.email} !`,
-          name:user.name, email:user.email, userID: user.userID, role: user.role, token: token});
+          name:user.name, email:user.email, userID: user.userID, subscriptionPlan: user.role.subscriptionPlan, billingCycle: user.role.billingCycle, token: token});
  
       // res.send('Logged In ');
         
