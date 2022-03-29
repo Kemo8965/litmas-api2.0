@@ -43,6 +43,10 @@ const DMR = new mongoose.Schema({
   DailyMilkingYield:{
     type: Number
   },
+
+  dailyEarnings:{
+    type: Number
+  },
   
   date: {         
     type:String,

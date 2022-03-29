@@ -140,13 +140,13 @@ router.post('/addNewDMR', async (req,res) => {
         const newDMR = new DMR({
 
             earTagID:req.body.earTagID,
-            firstMilking:req.body.firstMilking.toFixed(1),
-            secondMilking:req.body.secondMilking.toFixed(1),
-            thirdMilking:req.body.thirdMilking.toFixed(1),
+            firstMilking:req.body.firstMilking.toFixed(2),
+            secondMilking:req.body.secondMilking.toFixed(2),
+            thirdMilking:req.body.thirdMilking.toFixed(2),
             milkOwner:req.body.milkOwner,
             createdBy:req.body.createdBy,
-            DailyMilkingYield:(req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking).toFixed(1),
-            
+            DailyMilkingYield:(req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking).toFixed(2),
+            dailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 17.00).toFixed(2)
         });
      
         console.log(newDMR);

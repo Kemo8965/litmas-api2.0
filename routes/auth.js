@@ -122,7 +122,7 @@ router.get('/User/:id', async (req,res)=>{
            email: req.body.email,
            password: hashPassword,
            role: req.body.role,
-           userID:(Math.round((Math.random() * 1000) * (0.75) * (1.22) * (0.628) * (1.611)))
+           
        });
     
        console.log(registeredUser);

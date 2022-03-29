@@ -17,6 +17,7 @@ const UserSchema = new mongoose.Schema({
         max: 255,
         min: 6
     },
+
     password:{
         type: String,
         required: true,
@@ -25,25 +26,28 @@ const UserSchema = new mongoose.Schema({
     },
     
     role:{
-             admin:{
-                type: String,
-                default: 'admin'
-             },
              
-             customer:{
-                type: String,
-                default: 'customer'
-             }
+             
+            
+    subscriptionPlan:{
+        type: String,
+        default: 'Starter'
+      
+       
+    },
+
+    billingCycle:{
+        type: String,
+        default: 'Monthly'
+   
+       
+    },
               
         
         
     },
 
-    userID:{
-
-        type: String,
-       
-    },
+    
 
     date: {         
         type:String,
