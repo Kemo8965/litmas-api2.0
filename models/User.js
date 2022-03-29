@@ -42,6 +42,13 @@ const UserSchema = new mongoose.Schema({
    
        
     },
+
+    paymentStatus:{
+        type: String,
+        default: 'Paid'
+   
+       
+    },
               
         
         
