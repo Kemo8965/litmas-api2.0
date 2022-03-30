@@ -39,6 +39,29 @@ const DMR = new mongoose.Schema({
     type: String
   },
 
+  buyer:{
+    zambeef:{
+      type:String,
+      default: 'Zambeef'
+    },
+
+    dairyGold:{
+      type:String,
+      default: 'Dairy Gold'
+    },
+
+    parmalat:{
+      type:String,
+      default: 'Parmalat'
+    },
+
+    lactails:{
+      type:String,
+      default: 'Lactails'
+    },
+
+
+  },
   
   DailyMilkingYield:{
     type: Number
@@ -47,6 +70,21 @@ const DMR = new mongoose.Schema({
   dailyEarnings:{
     type: Number
   },
+
+  
+  // parmalatDailyEarnings:{
+  //   type: Number
+  // },
+
+  
+  // lactailsDailyEarnings:{
+  //   type: Number
+  // },
+
+  
+  // dairyGoldDailyEarnings:{
+  //   type: Number
+  // },
   
   date: {         
     type:String,

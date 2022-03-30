@@ -137,19 +137,31 @@ router.get('/allDMRs', async (req,res)=>{
 router.post('/addNewDMR', async (req,res) => {
     
      try {  
+         
         const newDMR = new DMR({
-
+            
             earTagID:req.body.earTagID,
             firstMilking:req.body.firstMilking.toFixed(2),
             secondMilking:req.body.secondMilking.toFixed(2),
             thirdMilking:req.body.thirdMilking.toFixed(2),
             milkOwner:req.body.milkOwner,
             createdBy:req.body.createdBy,
+            date:req.body.date,
+           // buyer:req.body.buyer,
             DailyMilkingYield:(req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking).toFixed(2),
-            dailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 17.00).toFixed(2)
+            dailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 10.00).toFixed(2),
+            // dairyGoldDailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 10.00).toFixed(2),
+            // parmalatDailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 6.40).toFixed(2),
+            // lactailsDailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 6.40).toFixed(2),
+
+            
+            
         });
-     
+        
+      
         console.log(newDMR);
+
+        
         
        const savedDMR = await newDMR.save();
          console.log(savedDMR);
