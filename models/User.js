@@ -31,14 +31,14 @@ const UserSchema = new mongoose.Schema({
             
     subscriptionPlan:{
         type: String,
-        default: 'Starter'
+        default: 'Enterprise'
       
        
     },
 
     billingCycle:{
         type: String,
-        default: 'Monthly'
+        default: 'Annual'
    
        
     },

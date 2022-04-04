@@ -119,7 +119,31 @@ router.post('/addNewCalf', async (req,res) => {
 //GET ALL DMRS
 router.get('/allDMRs', async (req,res)=>{
     try {
+
         const allDMRs = await DMR.find();
+
+      
+        
+        res.json({
+
+            status: 'Successfully retreived milking records!',
+            data: allDMRs
+            
+        });
+ 
+    } catch (error) {
+        res.json({ message: error})
+    }
+ });
+
+ router.get('/allDMRsByEarTagID', async (req,res)=>{
+    try {
+        console.log(req.query.earTagID);
+
+        const allDMRs = await DMR.find({earTagID: req.query.earTagID});
+
+      
+        
         res.json({
 
             status: 'Successfully retreived milking records!',
@@ -133,7 +157,7 @@ router.get('/allDMRs', async (req,res)=>{
  });
 
 
- //CREATE NEW TASK
+ //CREATE NEW DAILY MILKING RECORD
 router.post('/addNewDMR', async (req,res) => {
     
      try {  
