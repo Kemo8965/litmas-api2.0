@@ -71,6 +71,10 @@ const DMR = new mongoose.Schema({
     type: Number
   },
 
+  DailyFeedAllocation:{
+    type: Number
+  },
+
   
   // parmalatDailyEarnings:{
   //   type: Number

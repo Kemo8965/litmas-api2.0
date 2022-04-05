@@ -174,6 +174,7 @@ router.post('/addNewDMR', async (req,res) => {
            // buyer:req.body.buyer,
             DailyMilkingYield:(req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking).toFixed(2),
             dailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 10.00).toFixed(2),
+            DailyFeedAllocation: ((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking)*0.5).toFixed(2)
             // dairyGoldDailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 10.00).toFixed(2),
             // parmalatDailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 6.40).toFixed(2),
             // lactailsDailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 6.40).toFixed(2),
