@@ -4,7 +4,11 @@ const mongoose = require('mongoose');
 const authRoute = require('./routes/auth');
 require('dotenv').config();
 const taskRoute = require('./routes/tasks')
+const salesRoute = require('./routes/sales')
+const treatmentsRoute = require('./routes/treatments')
+const reproductiveRecordsRoute = require('./routes/reproductive-records')
 const cattleRoute = require('./routes/cattle')
+const mortalitiesRoute = require('./routes/mortalities')
 const app = express();
 const bodyParser = require("body-parser")
 
@@ -14,6 +18,10 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', taskRoute);
 app.use('/cattle', cattleRoute);
+app.use('/mortalities', mortalitiesRoute);
+app.use('/sales', salesRoute);
+app.use('/treatments', treatmentsRoute);
+app.use('/reproductiveRecords', reproductiveRecordsRoute);
 app.use('/auth', authRoute);
 
 // Default Route
