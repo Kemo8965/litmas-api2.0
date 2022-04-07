@@ -20,6 +20,8 @@ const Mortalities = new mongoose.Schema({
  
   dateOfDeath: {
     type: Date,
+    required: true,
+    default: moment().tz("Africa/Lusaka").format('dddd, MMMM Do YYYY') 
 
    
   },
