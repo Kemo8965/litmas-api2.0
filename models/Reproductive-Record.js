@@ -25,13 +25,13 @@ const ReproductiveRecords = new mongoose.Schema({
   },
 
   calvingInterval: {
-    type: String,
+    type: Number,
     required: true,
    
   },
 
   calvingEaseIndex: {
-    type: String,
+    type: Number,
     required: true,
    
   },
