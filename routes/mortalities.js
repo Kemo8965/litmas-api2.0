@@ -37,6 +37,7 @@ router.post('/addNewMortality', async (req,res) => {
             earTagID:req.body.earTagID,
             causeOfDeath:req.body.causeOfDeath,
             dateOfDeath:req.body.dateOfDeath,
+            mortalityRemarks:req.body.mortalityRemarks,
             createdBy: req.body.createdBy,
             date: req.body.date
             

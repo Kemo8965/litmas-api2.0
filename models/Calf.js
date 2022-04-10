@@ -57,6 +57,12 @@ const Calf = new mongoose.Schema({
    
   },
 
+  calfRemarks: {
+    type: String,
+    required: true,
+   
+  },
+
   
   createdBy:{
     type: String

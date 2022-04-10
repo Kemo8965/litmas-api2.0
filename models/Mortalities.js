@@ -26,6 +26,18 @@ const Mortalities = new mongoose.Schema({
    
   },
 
+  mortalityRemarks: {
+    type: String,
+    required: true,
+   
+  },
+
+  withdrawalPeriod:{
+    type: String,
+    required: true,
+   
+  },
+
   createdBy:{
     type: String
   },

@@ -96,6 +96,7 @@ router.post('/addNewCalf', async (req,res) => {
             earTagID:req.body.earTagID,
             earTagColor:req.body.earTagColor,
             calfStatus:req.body.calfStatus,
+            calfRemarks:req.body.calfRemarks,
             createdBy: req.body.createdBy
            
             
