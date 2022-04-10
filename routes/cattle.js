@@ -44,6 +44,7 @@ router.post('/addNewCattle', async (req,res) => {
             cattleColor:req.body.cattleColor,
             supplierName:req.body.supplierName,
             cattleStatus:req.body.cattleStatus,
+            cattleRemarks:req.body.cattleRemarks,
             createdBy: req.body.createdBy
            
             

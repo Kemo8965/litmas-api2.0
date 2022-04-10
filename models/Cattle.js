@@ -69,6 +69,12 @@ const Cattle = new mongoose.Schema({
    
   },
 
+  cattleRemarks: {
+    type: String,
+    required: true,
+   
+  },
+
   
   createdBy:{
     type: String
