@@ -37,7 +37,8 @@ router.post('/addNewTreatment', async (req,res) => {
             earTagID:req.body.earTagID,
             symptomsDisplayed:req.body.symptomsDisplayed,
             diagnosis:req.body.diagnosis,
-            drugsAdministered:req.body.drugsAdministered,        
+            drugsAdministered:req.body.drugsAdministered, 
+            withdrawalPeriod:req.body.withdrawalPeriod,       
             issuedDate:req.body.date,
             createdBy: req.body.createdBy
             

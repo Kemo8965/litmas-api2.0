@@ -52,6 +52,11 @@ const Cattle = new mongoose.Schema({
    
   },
 
+  cattleColor:{
+    type:String,
+    required: true
+  },
+
   earTagColor: {
     type: String,
     required: true,

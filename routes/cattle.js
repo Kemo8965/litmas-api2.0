@@ -41,6 +41,7 @@ router.post('/addNewCattle', async (req,res) => {
             cattleWeight:req.body.cattleWeight,
             earTagID:   req.body.earTagID,
             earTagColor:req.body.earTagColor,
+            cattleColor:req.body.cattleColor,
             supplierName:req.body.supplierName,
             cattleStatus:req.body.cattleStatus,
             createdBy: req.body.createdBy
@@ -95,6 +96,7 @@ router.post('/addNewCalf', async (req,res) => {
             calfWeight:req.body.calfWeight,
             earTagID:req.body.earTagID,
             earTagColor:req.body.earTagColor,
+            calfColor:req.body.calfColor,
             calfStatus:req.body.calfStatus,
             calfRemarks:req.body.calfRemarks,
             createdBy: req.body.createdBy

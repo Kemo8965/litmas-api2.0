@@ -51,6 +51,17 @@ const Calf = new mongoose.Schema({
    
   },
 
+  earTagID: {
+    type: String,
+    required: true,
+   
+  },
+
+  calfColor:{
+    type:String,
+    required: true
+  },
+
   calfStatus: {
     type: String,
     required: true,

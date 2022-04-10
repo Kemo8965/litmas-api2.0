@@ -13,7 +13,7 @@ const ReproductiveRecords = new mongoose.Schema({
  
   ageAtFirstCalving: {
     type: String,
-    required: true,
+    
    
   },
  
