@@ -79,6 +79,14 @@ const Calf = new mongoose.Schema({
     type: String
   },
   
+  age:{
+    type: String
+  },
+
+  stage:{
+    type: String
+  },
+
   date: {         
     type:String,
   // default: moment().utc().format('dddd, MMMM Do YYYY, h:mm:ss a zz') 

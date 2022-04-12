@@ -100,7 +100,9 @@ router.post('/addNewCalf', async (req,res) => {
             calfColor:req.body.calfColor,
             calfStatus:req.body.calfStatus,
             calfRemarks:req.body.calfRemarks,
-            createdBy: req.body.createdBy
+            createdBy: req.body.createdBy,
+            age:req.body.age,
+            stage:req.body.stage
            
             
         });
@@ -203,6 +205,7 @@ router.post('/addNewDMR', async (req,res) => {
               res.json({ message: err })
          }
 });
+
 
 
 
