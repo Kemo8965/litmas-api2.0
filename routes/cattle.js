@@ -70,12 +70,17 @@ router.post('/addNewCattle', async (req,res) => {
 router.get('/allCalves', async (req,res)=>{
     try {
         const allCalves = await Calf.find();
+
+       console.log(allCalves[0].data.calfDateOfBirth)
+        
         res.json({
 
             status: 'Successfully retreived all cattle!',
             data: allCalves
             
         });
+
+        
  
     } catch (error) {
         res.json({ message: error})
@@ -87,6 +92,144 @@ router.get('/allCalves', async (req,res)=>{
 router.post('/addNewCalf', async (req,res) => {
     
      try {  
+        var userinput = req.body.calfDateOfBirth;
+        var dob = new Date(userinput);
+        
+        //check user provide input or not
+        if(userinput==null || userinput==''){
+          console.log ("**Choose a date please!");  
+         // return false; 
+        } 
+    
+    //extract the year, month, and date from user date input
+    var dobYear = dob.getYear();
+    console.log(dobYear)
+    var dobMonth = dob.getMonth();
+    console.log(dobMonth)
+    var dobDate = dob.getDate();
+    console.log(dobDate)
+    
+    
+    //get the current date from the system
+    var now = new Date();
+    //extract the year, month, and date from current date
+    var currentYear = now.getYear();
+    console.log(currentYear)
+    var currentMonth = now.getMonth();
+    console.log(currentMonth)
+    var currentDate = now.getDate();
+    console.log(currentDate)
+    
+     //declare a variable to collect the age in year, month, and days
+     var age = {};
+     var ageString = "";
+     var stage = "";
+     var stageString= "";
+     //get years
+     yearAge = currentYear - dobYear;
+        
+     //get months
+     if (currentMonth >= dobMonth)
+       //get months when current month is greater
+       var monthAge = currentMonth - dobMonth;
+     else {
+       yearAge--;
+       var monthAge = 12 + currentMonth - dobMonth;
+     }
+    
+    
+     //get days
+     if (currentDate >= dobDate)
+     //get days when the current date is greater
+     var dateAge = currentDate - dobDate;
+    else {
+     monthAge--;
+     var dateAge = 31 + currentDate - dobDate;
+    
+     if (monthAge < 0) {
+       monthAge = 11;
+       yearAge--;
+     }
+    }
+    //group the age in a single variable
+    age = {
+    years: yearAge,
+    months: monthAge,
+    days: dateAge
+    };
+
+    stage = {
+        years: yearAge,
+        months: monthAge,
+        days: dateAge
+        };
+    
+    if ( (age.years > 0) && (age.months > 0) && (age.days > 0) )
+    ageString = age.years + " years, " + age.months + " months, and " + age.days + " days old. " + " Bulling Heifer Stage";
+    
+    else if ( (age.years == 0) && (age.months == 0) && (age.days > 0) )
+    ageString = "Only " + age.days + " days old! ";
+    //when current month and date is same as birth date and month
+    else if ( (age.years > 0) && (age.months == 0) && (age.days == 0) )
+    ageString = age.years +  " years old. Happy Birthday.";
+
+    else if ( (age.years > 0) && (age.months > 0) && (age.days == 0) )
+    ageString = age.years + " years and " + age.months + " months old. ";
+
+
+    else if ( (age.years == 0) && (age.months > 0) && (age.days > 0) )
+    ageString = age.months + " months and " + age.days + " days old.";
+
+
+    else if ( (age.years == 0) && (age.months > 0) && (age.days > 0) )
+    ageString = age.months + " months and " + age.days + " days old.";
+
+    else if ( (age.years > 0) && (age.months == 0) && (age.days > 0) )
+    ageString = age.years + " years, and " + age.days + " days old. ";
+
+    else if ( (age.years == 0) && (age.months > 0) && (age.days == 0) )
+    ageString = age.months + " months old. ";
+    //when current date is same as dob(date of birth)
+    else ageString = "Welcome to Earth! <br> It's first day on Earth!"; 
+    
+    //display the calculated age
+    console.log(ageString); 
+    age = ageString
+    //----------------------------------------- P R O D U C T I O N  S T A G E-------------------------------------------------------//
+     
+    if ( (stage.years > 0) && (stage.months > 0) && (stage.days > 0) )
+    stageString = "Bulling Heifer Stage";
+    else if ( (stage.years == 0) && (stage.months == 0) && (stage.days > 0) )
+    stageString = "Still a Calf";
+    //when current month and date is same as birth date and month
+    else if ( (stage.years > 0) && (stage.months == 0) && (stage.days == 0) )
+    stageString = "Now a Bulling Heifer";
+    else if ( (stage.years > 0) && (stage.months > 0) && (stage.days == 0) )
+    stageString = "Bulling Heifer Stage";
+
+
+    else if ( (stage.years == 0) && (stage.months >= 0) && (stage.months <= 2) && (stage.days > 0) )
+    stageString = "Calf Stage";
+
+    else if ( (stage.years == 0) && (stage.months >= 2) && (stage.months <= 6) && (stage.days > 0) )
+    stageString = "Weaner Stage";
+
+    else if ( (stage.years == 0) && (stage.months >= 6) && (stage.months <= 13) && (stage.days > 0) )
+    stageString = "Yearling Stage";
+
+    else if ( (stage.years == 0) && (stage.months >= 13) && (stage.days > 0) )
+    stageString = "Bulling Heifer Stage";
+
+    else if ( (stage.years > 0) && (stage.months == 0) && (stage.days > 0) )
+    stageString = "Bulling Heifer Stage";
+
+    else if ( (stage.years == 0) && (stage.months >= 0) && (stage.months <= 2) && (stage.days == 0) )
+    stageString = "Calf Stage";
+    //when current date is same as dob(date of birth)
+    else stageString = "Welcome to Earth! <br> It's first day on Earth!"; 
+    console.log(stageString); 
+    stage = stageString
+
         const newCalf = new Calf({
 
             calfBreed:req.body.calfBreed,
@@ -101,8 +244,10 @@ router.post('/addNewCalf', async (req,res) => {
             calfStatus:req.body.calfStatus,
             calfRemarks:req.body.calfRemarks,
             createdBy: req.body.createdBy,
-            age:req.body.age,
-            stage:req.body.stage
+            age:ageString,
+            stage:stageString,
+
+            
            
             
         });

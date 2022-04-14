@@ -57,10 +57,22 @@ router.get('/User/:id', async (req,res)=>{
     router.post('/login', async (req,res)=>{
 
 
-      
-      const user = await User.findOne({ email: req.body.email });
+     
+
+      const user = await User.findOne({ email: req.body.email});
 
       console.log(user);
+
+      var date = new Date();
+      var firstDay = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+      var lastDay = new Date(date.getUTCFullYear() + 1, date.getUTCMonth(), date.getUTCDate());
+
+    
+
+      console.log(firstDay);
+      console.log(lastDay);
+
+    //  if (req.body.paymentStatus === 'Paid') {
 
       if(!user) return res.status(400).send('Email is not found');
 
@@ -68,12 +80,22 @@ router.get('/User/:id', async (req,res)=>{
       if(!validPass) return res.status(400).send('Password is invalid');
 
       
-
-
+      if (user.role.paymentStatus ==='Paid') {
+        
       
+    
+
         const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
         res.header('auth-token',token).send({ message: `Logged in as ${req.body.email} !`,
-          name:user.name, email:user.email, userID: user.userID, subscriptionPlan: user.role.subscriptionPlan, billingCycle: user.role.billingCycle, token: token});
+          name:user.name,
+          email:user.email,
+          userID: user.userID,
+          subscriptionPlan: user.role.subscriptionPlan, 
+          billingCycle: user.role.billingCycle, 
+          paymentStatus: user.role.paymentStatus, 
+          startDate:firstDay.toDateString(),
+          endDate:lastDay.toDateString(),
+          token: token});
  
       // res.send('Logged In ');
         
@@ -82,11 +104,38 @@ router.get('/User/:id', async (req,res)=>{
       const {error}= loginValidation(req.body);
       if (error) return res.status(400).send(error.details[0].message);
 
+      
+       } else {
+          return res.status(500).json({
+          message: 'Cannot login because you have not yet subscribed or your subscription has not yet been renewed. Please renew and try again.',
+          
+          })
+        }
+      
+        
+
        
      
     });
+//--------UPDATE A PAYMENT STATUS------//
+router.put('/allUsers/:id', cors(), async (req,res,next )=>{
+  try {
+      const activeUser = await User.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
+          User.findOne({ _id: req.params.id }).then(function(){
+              res.json({
 
+                  status: 'Successfully activated user!',
+                  data: activeUser
+                  
+              })
+          })
+      })
+     
 
+  } catch (error) {
+      res.json({ message: error})
+  }
+});
 
 
 

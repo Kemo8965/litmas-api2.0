@@ -80,7 +80,8 @@ const Calf = new mongoose.Schema({
   },
   
   age:{
-    type: String
+    type: String,
+   
   },
 
   stage:{
