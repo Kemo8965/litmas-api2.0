@@ -27,6 +27,11 @@ const Tasks = new mongoose.Schema({
   createdBy:{
     type: String
   },
+
+  status:{
+    type:String,
+    default: 'Pending'
+  },
   
   date: {         
     type:String,

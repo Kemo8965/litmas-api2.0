@@ -37,6 +37,7 @@ router.post('/addNewTask', async (req,res) => {
             selectPriority:req.body.selectPriority,
             assignTask:req.body.assignTask,
             issuedDate:req.body.date,
+            status:req.body.status,
             createdBy: req.body.createdBy
             
         });
@@ -54,5 +55,26 @@ router.post('/addNewTask', async (req,res) => {
               res.json({ message: err })
          }
 });
+
+
+//--------UPDATE A PERMIT APPLICATION------//
+router.put('/completeTask/:id', async (req,res,next )=>{
+    try {
+        const completedTask = await Task.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
+            Task.findOne({ _id: req.params.id }).then(function(){
+                res.json({
+
+                    status: 'Successfully marked as complete!',
+                    data: completedTask
+                    
+                })
+            })
+        })
+       
+ 
+    } catch (error) {
+        res.json({ message: error})
+    }
+ });
 
 module.exports= router
