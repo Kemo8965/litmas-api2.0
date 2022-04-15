@@ -118,7 +118,7 @@ router.get('/User/:id', async (req,res)=>{
      
     });
 //--------UPDATE A PAYMENT STATUS------//
-router.put('/allUsers/:id', cors(), async (req,res,next )=>{
+router.put('/activateUser/:id', cors(), async (req,res,next )=>{
   try {
       const activeUser = await User.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
           User.findOne({ _id: req.params.id }).then(function(){

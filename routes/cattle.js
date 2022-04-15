@@ -71,7 +71,7 @@ router.get('/allCalves', async (req,res)=>{
     try {
         const allCalves = await Calf.find();
 
-       console.log(allCalves[0].data.calfDateOfBirth)
+       
         
         res.json({
 
