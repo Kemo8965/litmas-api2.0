@@ -24,6 +24,12 @@ const Cattle = new mongoose.Schema({
     default: moment().tz("Africa/Lusaka").format('dddd, MMMM Do YYYY') 
    
   },
+
+  cattleAge: {
+    type: String,
+   
+   
+  },
  
   cattleSire: {
     type: String,
