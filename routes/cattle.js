@@ -430,6 +430,7 @@ router.post('/addNewDMR', async (req,res) => {
             milkOwner:req.body.milkOwner,
             createdBy:req.body.createdBy,
             date:req.body.date,
+            milkingDate:req.body.milkingDate,
            // buyer:req.body.buyer,
             DailyMilkingYield:(req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking).toFixed(2),
             dailyEarnings:((req.body.firstMilking + req.body.secondMilking + req.body.thirdMilking) * 10.00).toFixed(2),

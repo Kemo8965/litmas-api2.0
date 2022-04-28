@@ -36,7 +36,7 @@ router.post('/addNewTask', async (req,res) => {
             taskDescription:req.body.taskDescription,
             selectPriority:req.body.selectPriority,
             assignTask:req.body.assignTask,
-            assignedDate:req.body.dateAssigned,
+            dateAssigned:req.body.dateAssigned,
             dueDate:req.body.dueDate,
             issuedDate:req.body.date,
             status:req.body.status,
