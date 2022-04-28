@@ -37,6 +37,8 @@ router.post('/addNewCattle', async (req,res) => {
             cattleBreed:req.body.cattleBreed,
             cattleDateOfBirth:req.body.cattleDateOfBirth,
             datePurchased:req.body.datePurchased,
+            cattleSire:req.body.cattleSire,
+            cattleDam:req.body.cattleDam,
             cattleSex:req.body.cattleSex,
             cattleWeight:req.body.cattleWeight,
             earTagID:   req.body.earTagID,

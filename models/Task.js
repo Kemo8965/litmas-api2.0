@@ -24,6 +24,18 @@ const Tasks = new mongoose.Schema({
    
   },
 
+  dateAssigned: {
+    type: String,
+    required: true,
+   
+  },
+
+  dueDate: {
+    type: String,
+    required: true,
+   
+  },
+
   createdBy:{
     type: String
   },

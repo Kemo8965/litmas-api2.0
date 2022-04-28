@@ -25,6 +25,17 @@ const Cattle = new mongoose.Schema({
    
   },
  
+  cattleSire: {
+    type: String,
+    required: true,
+   
+  },
+
+  cattleDam: {
+    type: String,
+    required: true,
+   
+  },
  
   cattleSex: {
     type: String,
