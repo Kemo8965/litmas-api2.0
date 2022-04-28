@@ -35,6 +35,7 @@ router.post('/addNewSale', async (req,res) => {
 
             totalAmountInLitres:req.body.totalAmountInLitres,
             sellingPrice:req.body.sellingPrice,
+            sellingDate:req.body.sellingDate,
             issuedDate:req.body.date,
             createdBy: req.body.createdBy,
             totalDailyEarnings: (req.body.totalAmountInLitres * req.body.sellingPrice).toFixed(2)

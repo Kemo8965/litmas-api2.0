@@ -16,6 +16,13 @@ const Sales = new mongoose.Schema({
     required: true,
    
   },
+
+  sellingDate: {
+    type: Number,
+    required: true,
+   
+  },
+ 
  
  
   createdBy:{
