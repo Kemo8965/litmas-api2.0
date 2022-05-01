@@ -50,7 +50,7 @@ const ReproductiveRecords = new mongoose.Schema({
   date: {         
     type:String,
   // default: moment().utc().format('dddd, MMMM Do YYYY, h:mm:ss a zz') 
-  default: moment().tz("Africa/Lusaka").format('dddd, MMMM Do YYYY') 
+//  default: moment().tz("Africa/Lusaka").format('dddd, MMMM Do YYYY') 
   
   // default: moment().tz('America/Los_Angeles').format('dddd, MMMM Do YYYY, h:mm:ss a zz')         
 }
