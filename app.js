@@ -13,7 +13,12 @@ const app = express();
 const bodyParser = require("body-parser")
 
 let corsOptions = {
-  origin: [ 'https://litmas.netlify.app', 'http://localhost:3000' ]
+ // origin: [ 'https://litmas.netlify.app', 'http://localhost:3000' ],
+  setHeader: ("Access-Control-Allow-Origin", "*"),
+  setHeader:("Access-Control-Allow-Credentials", "true"),
+  setHeader:("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT, PATCH"),
+  setHeader:("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+
 };
 
 app.use(cors( corsOptions));
