@@ -12,8 +12,11 @@ const mortalitiesRoute = require('./routes/mortalities')
 const app = express();
 const bodyParser = require("body-parser")
 
+let corsOptions = {
+  origin: [ 'https://litmas.netlify.app', 'http://localhost:3000' ]
+};
 
-app.use(cors());
+app.use(cors( corsOptions));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', taskRoute);
