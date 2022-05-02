@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../models/Task');
 const User = require('../models/User');
+const app = express();
 
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
