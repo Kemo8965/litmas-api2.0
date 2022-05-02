@@ -11,7 +11,7 @@ const cattleRoute = require('./routes/cattle')
 const mortalitiesRoute = require('./routes/mortalities')
 const app = express();
 const bodyParser = require("body-parser");
-
+// var xhr = new XMLHttpRequest();
 
   // let corsOptions = {
    
@@ -44,10 +44,10 @@ app.use((cors(), (req, res, next) => {
   // res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   // res.append('Access-Control-Allow-Headers', 'Content-Type','Authorization');
 
-  xhr.res.setHeader("Access-Control-Allow-Origin", "*");
-  xhr.res.setHeader("Access-Control-Allow-Credentials", "true");
-  xhr.res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  xhr.res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, application/json, Access-Control-Request-Method, Access-Control-Request-Headers");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, , Access-Control-Request-Method, Access-Control-Request-Headers");
 
 
   
