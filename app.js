@@ -39,21 +39,25 @@ const bodyParser = require("body-parser");
 //   next();
 // });
 
-app.use((cors(), (req, res, next) => {
-  // res.append('Access-Control-Allow-Origin', '*');
-  // res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  // res.append('Access-Control-Allow-Headers', 'Content-Type','Authorization');
+// app.use((cors(), (req, res, next) => {
+//   // res.append('Access-Control-Allow-Origin', '*');
+//   // res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   // res.append('Access-Control-Allow-Headers', 'Content-Type','Authorization');
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, , Access-Control-Request-Method, Access-Control-Request-Headers");
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Credentials", "true");
+//   res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+//   res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, , Access-Control-Request-Method, Access-Control-Request-Headers");
 
 
   
-}));
+// }));
 
-
+app.use(cors({
+  origin:['https://litmas.netlify.app', 'http://localhost:3000'],
+  methods:['GET','POST','PUT','PATCH','OPTIONS'],
+  credentials:true
+}))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', taskRoute);
