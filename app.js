@@ -54,7 +54,7 @@ const bodyParser = require("body-parser");
 // }));
 
 app.use(cors({
-  origin:['https://litmas.netlify.app', 'http://localhost:3000'],
+  origin:'*',
   methods:['GET','POST','PUT','PATCH','OPTIONS'],
   credentials:true
 }))
