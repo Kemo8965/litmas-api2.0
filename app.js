@@ -11,54 +11,16 @@ const cattleRoute = require('./routes/cattle')
 const mortalitiesRoute = require('./routes/mortalities')
 const app = express();
 const bodyParser = require("body-parser");
-// var xhr = new XMLHttpRequest();
 
-  // let corsOptions = {
-   
-  //   setHeader: ("Access-Control-Allow-Origin",'*'),
-  //   // setHeader:("Access-Control-Allow-Credentials", "true"),
-  //   // setHeader:("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT, PATCH"),
-  //   // setHeader:("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Access-Control-Request-Method, Access-Control-Request-Headers")
-
-  // };
-
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", [ 'https://litmas.netlify.app', 'http://localhost:3000' ]);
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "Origin,X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-//   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,PUT,DELETE,OPTIONS");
-//   next();
-// });
-
-// app.use((req, res, next) => {
-//   res.append('Access-Control-Allow-Origin', ['*']);
-//   res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//  // res.append('Access-Control-Allow-Headers', 'Content-Type','Authorization');
-//   next();
-// });
-
-// app.use((cors(), (req, res, next) => {
-//   // res.append('Access-Control-Allow-Origin', '*');
-//   // res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   // res.append('Access-Control-Allow-Headers', 'Content-Type','Authorization');
-
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader("Access-Control-Allow-Credentials", "true");
-//   res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-//   res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, , Access-Control-Request-Method, Access-Control-Request-Headers");
-
-
-  
-// }));
 
 app.use(cors({
   origin:'*',
   methods:['GET','POST','PUT','PATCH','OPTIONS'],
   credentials:true,
-  allowedHeaders: ['Content-Type', 'Access-Control-Allow-Headers', 'origin','Accept', 'X-Requested-With' , 'Access-Control-Request-Method', 'Access-Control-Request-Headers']
+  allowedHeaders: {"Content-Type": "application/json" }
 }))
+
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', taskRoute);
