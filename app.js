@@ -57,7 +57,7 @@ app.use(cors({
   origin:'*',
   methods:['GET','POST','PUT','PATCH','OPTIONS'],
   credentials:true,
-  allowedHeaders: 'Content-Type'
+  allowedHeaders: ['Content-Type', 'Access-Control-Allow-Headers', 'origin','Accept', 'X-Requested-With' , 'Access-Control-Request-Method', 'Access-Control-Request-Headers']
 }))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
