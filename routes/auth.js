@@ -54,7 +54,7 @@ router.get('/User/:id', async (req,res)=>{
 
  
   //LOGIN  USERS
-    router.options('/login', async (req,res)=>{
+    router.post('/login', async (req,res)=>{
        
        // Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
         const headers = {
@@ -127,78 +127,7 @@ router.get('/User/:id', async (req,res)=>{
      
     });
 
-    router.post('/login', async (req,res)=>{
-       
-        // Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
-         const headers = {
-             'Access-Control-Allow-Origin': '*',
-             'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Content-Type, Authorization, Accept',
-             'Access-Control-Allow-Methods': '*',
-             "Content-Type": "application/x-www-form-urlencoded; multipart/form-data; text/plain",
-             "Accept": "application/json, text/plain, */*"
-           };
-         
-      
- 
-       const user = await User.findOne({ email: req.body.email});
- 
-       console.log(user);
- 
-       var date = new Date();
-       const firstDay = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-       const lastDay = new Date(date.getUTCFullYear() + 1, date.getUTCMonth(), date.getUTCDate());
- 
-     
- 
-       console.log(firstDay);
-       console.log(lastDay);
- 
-     //  if (req.body.paymentStatus === 'Paid') {
- 
-       if(!user) return res.status(400).send('Email is not found');
- 
-       const validPass = await bcrypt.compare(req.body.password, user.password);
-       if(!validPass) return res.status(400).send('Password is invalid');
- 
-       
-       if (user.paymentStatus ==='Paid') {
-         
-       
-     
- 
-         const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
-         res.header('auth-token',token).send({ message: `Logged in as ${req.body.email} !`,
-           headers:headers,
-           name:user.name,
-           email:user.email,
-           userID:user.userID,
-           subscriptionPlan:user.subscriptionPlan, 
-           billingCycle:user.billingCycle, 
-           paymentStatus:user.paymentStatus, 
-           startDate:firstDay.toLocaleDateString(),
-           endDate:lastDay.toLocaleDateString(),
-           token:token});
-  
-       // res.send('Logged In ');
-         
- 
- 
-       const {error}= loginValidation(req.body);
-       if (error) return res.status(400).send(error.details[0].message);
- 
-       
-        } else {
-           return res.status(500).json({
-           message: 'Cannot login because you have not yet subscribed or your subscription has not yet been renewed. Please renew and try again.',
-           
-           })
-         }
-       
-         
- 
-        
-      
-     });
+    
 //--------UPDATE A PAYMENT STATUS------//
 router.options('/activateUser/:id', async (req,res,next )=>{
     try {
