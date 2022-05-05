@@ -58,7 +58,24 @@ router.post('/addNewTask', async (req,res) => {
          }
 });
 
+router.options('/completeTask/:id', async (req,res,next )=>{
+    try {
+        const completedTask = await Task.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
+            Task.findOne({ _id: req.params.id }).then(function(){
+                res.json({
 
+                    status: 'Successfully marked as complete!',
+                    data: completedTask
+                    
+                })
+            })
+        })
+       
+ 
+    } catch (error) {
+        res.json({ message: error})
+    }
+ });
 //--------UPDATE A PERMIT APPLICATION------//
 router.put('/completeTask/:id', async (req,res,next )=>{
     try {
