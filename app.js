@@ -20,7 +20,7 @@ const bodyParser = require("body-parser");
    credentials:false,
   // allowedHeaders: { 'Access-Control-Allow-Headers': '*'},
   //  preflightContinue:true,
-  // Headers :['Content-Type:application/x-www-form-urlencoded; charset=UTF-8']
+   Headers :['Content-Type:application/x-www-form-urlencoded; charset=UTF-8']
   
  }))
 
