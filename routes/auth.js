@@ -56,12 +56,12 @@ router.get('/User/:id', async (req,res)=>{
   //LOGIN  USERS
     router.post('/login', async (req,res)=>{
        
-        Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
+       // Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
         const headers = {
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Content-Type, Authorization',
+            'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Authorization',
             'Access-Control-Allow-Methods': '*',
-            "Content-Type": "application/json"
+           
           };
         
      
