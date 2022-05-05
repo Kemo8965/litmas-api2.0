@@ -38,7 +38,8 @@ router.post('/addNewTreatment', async (req,res) => {
             symptomsDisplayed:req.body.symptomsDisplayed,
             diagnosis:req.body.diagnosis,
             drugsAdministered:req.body.drugsAdministered, 
-            withdrawalPeriod:req.body.withdrawalPeriod,       
+            withdrawalPeriod:req.body.withdrawalPeriod,
+            treatmentRemarks:req.body.treatmentRemarks,       
             issuedDate:req.body.date,
             createdBy: req.body.createdBy
             
@@ -57,5 +58,8 @@ router.post('/addNewTreatment', async (req,res) => {
               res.json({ message: err })
          }
 });
+
+//--------UPDATE A PERMIT APPLICATION------//
+
 
 module.exports= router

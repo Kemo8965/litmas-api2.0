@@ -25,10 +25,8 @@ const UserSchema = new mongoose.Schema({
         min:8 
     },
     
-    role:{
              
-             
-            
+                       
     subscriptionPlan:{
         type: String,
         default: 'Enterprise'
@@ -45,17 +43,12 @@ const UserSchema = new mongoose.Schema({
 
     paymentStatus:{
         type: String,
-        default: 'Paid'
+        default: 'Pending'
    
        
     },
               
-        
-        
-    },
-
-    
-
+  
     date: {         
         type:String,
       // default: moment().utc().format('dddd, MMMM Do YYYY, h:mm:ss a zz') 

@@ -5,21 +5,26 @@ const authRoute = require('./routes/auth');
 require('dotenv').config();
 const taskRoute = require('./routes/tasks')
 const salesRoute = require('./routes/sales')
+const expensesRoute = require('./routes/expenses')
 const treatmentsRoute = require('./routes/treatments')
 const reproductiveRecordsRoute = require('./routes/reproductive-records')
 const cattleRoute = require('./routes/cattle')
 const mortalitiesRoute = require('./routes/mortalities')
 const app = express();
 const bodyParser = require("body-parser");
+// const xhr = new XMLHttpRequest();
 
+ app.use(cors({
+   origin:'*',
+   methods:['GET','POST','PUT','PATCH','OPTIONS'],
+   credentials:false,
+  // allowedHeaders: { 'Access-Control-Allow-Headers': '*'},
+  //  preflightContinue:true,
+  // Headers :['Content-Type:application/x-www-form-urlencoded; charset=UTF-8']
+  
+ }))
 
-app.use(cors({
-  origin:'*',
-  methods:['GET','POST','PUT','PATCH','OPTIONS'],
-  credentials:true,
-  allowedHeaders: {"Content-Type": "application/json" }
-}))
-
+// Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,6 +32,7 @@ app.use('/tasks', taskRoute);
 app.use('/cattle', cattleRoute);
 app.use('/mortalities', mortalitiesRoute);
 app.use('/sales', salesRoute);
+app.use('/expenses', expensesRoute);
 app.use('/treatments', treatmentsRoute);
 app.use('/reproductiveRecords', reproductiveRecordsRoute);
 app.use('/auth', authRoute);

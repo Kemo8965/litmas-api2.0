@@ -3,21 +3,21 @@ const mongoose = require('mongoose');
 const tz = require ('moment-timezone')
 
 
-const Sales = new mongoose.Schema({
+const Expenses = new mongoose.Schema({
 
-  totalAmountInLitres: {
-        type: Number,
+  expensesItem: {
+        type: String,
         required: true,
     
   },
  
-  sellingPrice: {
+  expensesCost: {
     type: Number,
     required: true,
    
   },
 
-  sellingDate: {
+  expensesDate: {
     type: String,
     required: true,
    
@@ -29,9 +29,7 @@ const Sales = new mongoose.Schema({
     type: String
   },
 
-  totalDailyEarnings:{
-    type: Number
-  },
+
   
   date: {         
     type:String,
@@ -43,4 +41,4 @@ const Sales = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("Sales Records", Sales);
+module.exports = mongoose.model("Expenses Records", Expenses);

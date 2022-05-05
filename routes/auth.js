@@ -54,9 +54,16 @@ router.get('/User/:id', async (req,res)=>{
 
  
   //LOGIN  USERS
-    router.post('/login',cors(), async (req,res)=>{
-
-
+    router.post('/login', async (req,res)=>{
+       
+        Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
+        const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Content-Type, Authorization',
+            'Access-Control-Allow-Methods': '*',
+            "Content-Type": "application/json"
+          };
+        
      
 
       const user = await User.findOne({ email: req.body.email});
@@ -64,8 +71,8 @@ router.get('/User/:id', async (req,res)=>{
       console.log(user);
 
       var date = new Date();
-      var firstDay = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-      var lastDay = new Date(date.getUTCFullYear() + 1, date.getUTCMonth(), date.getUTCDate());
+      const firstDay = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+      const lastDay = new Date(date.getUTCFullYear() + 1, date.getUTCMonth(), date.getUTCDate());
 
     
 
@@ -80,22 +87,23 @@ router.get('/User/:id', async (req,res)=>{
       if(!validPass) return res.status(400).send('Password is invalid');
 
       
-      if (user.role.paymentStatus ==='Paid') {
+      if (user.paymentStatus ==='Paid') {
         
       
     
 
         const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
         res.header('auth-token',token).send({ message: `Logged in as ${req.body.email} !`,
+          headers:headers,
           name:user.name,
           email:user.email,
-          userID: user.userID,
-          subscriptionPlan: user.role.subscriptionPlan, 
-          billingCycle: user.role.billingCycle, 
-          paymentStatus: user.role.paymentStatus, 
-          startDate:firstDay.toDateString(),
-          endDate:lastDay.toDateString(),
-          token: token});
+          userID:user.userID,
+          subscriptionPlan:user.subscriptionPlan, 
+          billingCycle:user.billingCycle, 
+          paymentStatus:user.paymentStatus, 
+          startDate:firstDay.toLocaleDateString(),
+          endDate:lastDay.toLocaleDateString(),
+          token:token});
  
       // res.send('Logged In ');
         
@@ -170,7 +178,9 @@ router.put('/activateUser/:id', async (req,res,next )=>{
            name: req.body.name,
            email: req.body.email,
            password: hashPassword,
-           role: req.body.role,
+           subscriptionPlan: req.body.subscriptionPlan,
+           billingCycle: req.body.billingCycle,
+           paymentStatus: req.body.paymentStatus
            
        });
     

@@ -460,6 +460,78 @@ router.post('/addNewDMR', async (req,res) => {
          }
 });
 
+router.put('/putInTreatment/:id', async (req,res,next )=>{
+    try {
+        const underTreatment = await Cattle.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
+            Cattle.findOne({ _id: req.params.id }).then(function(){
+                res.json({
+
+                    status: 'Marked as under Treatment.',
+                    data: underTreatment                    
+                })
+            })
+        })
+       
+ 
+    } catch (error) {
+        res.json({ message: error})
+    }
+ });
+
+ router.put('/markAsTreated/:id', async (req,res,next )=>{
+    try {
+        const markAsTreated = await Cattle.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
+            Cattle.findOne({ _id: req.params.id }).then(function(){
+                res.json({
+
+                    status: 'Marked as under Treatment.',
+                    data: markAsTreated                    
+                })
+            })
+        })
+       
+ 
+    } catch (error) {
+        res.json({ message: error})
+    }
+ });
+
+
+ router.put('/putCalfInTreatment/:id', async (req,res,next )=>{
+    try {
+        const underTreatment = await Calf.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
+            Calf.findOne({ _id: req.params.id }).then(function(){
+                res.json({
+
+                    status: 'Marked as under Treatment.',
+                    data: underTreatment                    
+                })
+            })
+        })
+       
+ 
+    } catch (error) {
+        res.json({ message: error})
+    }
+ });
+
+ router.put('/markCalfAsTreated/:id', async (req,res,next )=>{
+    try {
+        const markAsTreated = await Calf.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
+            Calf.findOne({ _id: req.params.id }).then(function(){
+                res.json({
+
+                    status: 'Marked as under Treatment.',
+                    data: markAsTreated                    
+                })
+            })
+        })
+       
+ 
+    } catch (error) {
+        res.json({ message: error})
+    }
+ });
 
 
 

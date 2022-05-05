@@ -30,6 +30,14 @@ const Treatments = new mongoose.Schema({
    
   },
 
+  withdrawalPeriod:{
+    type: String
+  },
+
+  treatmentRemarks:{
+    type: String
+  },
+
   createdBy:{
     type: String
   },
