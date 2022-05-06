@@ -5,6 +5,9 @@ const { registerValidation, loginValidation } = require('../validation');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors')
+const app = express();
+
+app.use(cors());
 
 router.get('/', async (req,res)=>{
   
@@ -56,14 +59,14 @@ router.get('/User/:id', async (req,res)=>{
   //LOGIN  USERS
     router.post('/login', async (req,res)=>{
        
-       // Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
-        const headers = {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Content-Type, Authorization, Accept',
-            'Access-Control-Allow-Methods': '*',
-            "Content-Type": "application/x-www-form-urlencoded; multipart/form-data; text/plain",
-            "Accept": "application/json, text/plain, */*"
-          };
+    //    // Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
+    //     const headers = {
+    //         'Access-Control-Allow-Origin': '*',
+    //         'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Content-Type, Authorization, Accept',
+    //         'Access-Control-Allow-Methods': '*',
+    //         "Content-Type": "application/x-www-form-urlencoded; multipart/form-data; text/plain",
+    //         "Accept": "application/json, text/plain, */*"
+    //       };
         
      
 
@@ -95,7 +98,7 @@ router.get('/User/:id', async (req,res)=>{
 
         const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
         res.header('auth-token',token).send({ message: `Logged in as ${req.body.email} !`,
-          headers:headers,
+         
           name:user.name,
           email:user.email,
           userID:user.userID,
@@ -129,24 +132,7 @@ router.get('/User/:id', async (req,res)=>{
 
     
 //--------UPDATE A PAYMENT STATUS------//
-router.options('/activateUser/:id', async (req,res,next )=>{
-    try {
-        const activeUser = await User.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function(){
-            User.findOne({ _id: req.params.id }).then(function(){
-                res.json({
-  
-                    status: 'Successfully activated user!',
-                    data: activeUser
-                    
-                })
-            })
-        })
-       
-  
-    } catch (error) {
-        res.json({ message: error})
-    }
-  });
+router.options('/activateUser/:id',cors());
 
 router.put('/activateUser/:id', async (req,res,next )=>{
   try {

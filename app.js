@@ -12,24 +12,10 @@ const cattleRoute = require('./routes/cattle')
 const mortalitiesRoute = require('./routes/mortalities')
 const app = express();
 const bodyParser = require("body-parser");
-// const xhr = new XMLHttpRequest();
 
-//  app.use(cors({
-//   Headers :['Content-Type:application/x-www-form-urlencoded; charset=UTF-8'],
-//    origin:'*',
-//    methods:['GET','POST','PUT','PATCH','OPTIONS'],
-//    credentials:false,
-//   // allowedHeaders: { 'Access-Control-Allow-Headers': '*'},
-//   //  preflightContinue:true,
-   
-  
-//  }))
 
-// Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
-app.options('/tasks', taskRoute, cors());
-app.options('/auth', authRoute, cors());
-app.options('/cattle', cattleRoute, cors());
-app.use(cors());
+ app.options('*', cors());
+// app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', taskRoute);
