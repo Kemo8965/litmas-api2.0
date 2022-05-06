@@ -15,7 +15,11 @@ const bodyParser = require("body-parser");
 
 
  app.options('*', cors({
-  optionsSuccessStatus: 200
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "allowedHeaders":"*",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
  }));
 // app.use(cors());
 app.use(express.json());
