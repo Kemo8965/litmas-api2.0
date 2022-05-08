@@ -156,8 +156,12 @@ router.put('/activateUser/:id', async (req,res,next )=>{
 
 
     //LOGOUT USER
+
+    router.options('/logout',cors());
+
     router.get('/logout', async (req,res) => {
         res.header('auth-token', '', { maxAge: 1 });
+        res.sendStatus(200);
         res.redirect('/auth/login').send('Logged Out!');
     });
 
