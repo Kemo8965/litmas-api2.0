@@ -58,7 +58,7 @@ router.get('/User/:id', async (req,res)=>{
  
   //LOGIN  USERS
     router.post('/login', async (req,res)=>{
-        res.sendStatus(200); 
+        
     //    // Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
     //     const headers = {
     //         'Access-Control-Allow-Origin': '*',
@@ -94,10 +94,10 @@ router.get('/User/:id', async (req,res)=>{
       if (user.paymentStatus ==='Paid') {
         
       
-    
+       
 
         const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
-        res.header('auth-token',token).send({ status:200, message: `Logged in as ${req.body.email} !`,
+        res.header('auth-token',token).sendStatus(200).send({ message: `Logged in as ${req.body.email} !`,
          
           name:user.name,
           email:user.email,
@@ -108,7 +108,7 @@ router.get('/User/:id', async (req,res)=>{
           startDate:firstDay.toLocaleDateString(),
           endDate:lastDay.toLocaleDateString(),
           token:token });
-          res.sendStatus(200);
+         
       // res.send('Logged In ');
         
 
