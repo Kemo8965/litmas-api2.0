@@ -97,7 +97,8 @@ router.get('/User/:id', async (req,res)=>{
        
 
         const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
-        res.header('auth-token',token).sendStatus(200).send({ message: `Logged in as ${req.body.email} !`,
+        res.status(200).send("OK");
+        res.header('auth-token',token).status(200).send("OK",{ message: `Logged in as ${req.body.email} !`,
          
           name:user.name,
           email:user.email,
