@@ -57,8 +57,10 @@ router.get('/User/:id', async (req,res)=>{
 
  
   //LOGIN  USERS
+    router.options('/login',cors());
+    
     router.post('/login', async (req,res)=>{
-        
+        res.status(200).send("OK");  
     //    // Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
     //     const headers = {
     //         'Access-Control-Allow-Origin': '*',
@@ -97,7 +99,7 @@ router.get('/User/:id', async (req,res)=>{
        
 
         const token = jwt.sign({ userID: user.userID },`${ process.env.TOKEN_SECRET}`);
-        res.status(200).send("OK");
+        
         res.header('auth-token',token).status(200).send("OK",{ message: `Logged in as ${req.body.email} !`,
          
           name:user.name,
