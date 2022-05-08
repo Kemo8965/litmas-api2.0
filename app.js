@@ -14,22 +14,30 @@ const app = express();
 const bodyParser = require("body-parser");
 
 
-//  app.options('*', cors({
+  app.options('*', cors({
   
 //   "origin": "*",
 //   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
 //   "allowedHeaders":"*",
 //   "preflightContinue": false,
 //   "optionsSuccessStatus": 204,
-  
-//  }));
 
- app.options('*', cors());
+         "Access-Control-Allow-Origin": '*',
+         "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Content-Type, Authorization, Accept",
+         "Access-Control-Allow-Methods": "*",
+         "Content-Type": "application/x-www-form-urlencoded; multipart/form-data; text/plain",
+         "Accept": "application/json, text/plain, */*"
+  
+  }));
+
+ //app.options('*', cors());
  app.options('*', function (req,res) { res.sendStatus(200); });
 
 //  app.options('/*', (_, res) => {
 //   res.sendStatus(200);
 // });
+
+
 
 app.use(cors());
 app.use(express.json());
