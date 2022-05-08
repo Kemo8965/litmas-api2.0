@@ -15,13 +15,20 @@ const bodyParser = require("body-parser");
 
 
  app.options('*', cors({
+  
   "origin": "*",
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   "allowedHeaders":"*",
   "preflightContinue": false,
-  "optionsSuccessStatus": 204
+  "optionsSuccessStatus": 204,
+  
  }));
-// app.use(cors());
+
+ app.options('/*', (_, res) => {
+  res.sendStatus(200);
+});
+
+  app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', taskRoute);
