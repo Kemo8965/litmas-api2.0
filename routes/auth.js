@@ -165,7 +165,7 @@ router.put('/activateUser/:id', async (req,res,next )=>{
 
     router.get('/logout', async (req,res) => {
         res.header('auth-token', '', { maxAge: 1 });
-        res.sendStatus(200);
+        res.status(200).send("OK");
         res.redirect('/auth/login').send('Logged Out!');
     });
 
