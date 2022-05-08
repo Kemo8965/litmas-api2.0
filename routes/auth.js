@@ -58,7 +58,7 @@ router.get('/User/:id', async (req,res)=>{
  
   //LOGIN  USERS
     router.post('/login', async (req,res)=>{
-       
+        res.sendStatus(200); 
     //    // Headers =['Content-Type:application/json', 'Access-Control-Allow-Headers: Accept, Access-Control-Allow-Headers, Content-Type, Authorization']
     //     const headers = {
     //         'Access-Control-Allow-Origin': '*',
